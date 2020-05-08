@@ -21,5 +21,6 @@ func getAllArticles(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Println("Endpoint Hit : Get all articles")
+	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(articles)
 }
