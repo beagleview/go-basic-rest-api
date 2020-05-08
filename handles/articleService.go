@@ -24,3 +24,20 @@ func getAllArticles(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(articles)
 }
+
+func checkArticle(w http.ResponseWriter, r *http.Request) {
+
+	article := Article{}
+	dec := json.NewDecoder(r.Body)
+	dec.DisallowUnknownFields()
+	err := dec.Decode(&article)
+	if err != nil {
+		msg := fmt.Sprintf("Request error!")
+		http.Error(w, msg, http.StatusBadRequest)
+		return
+	}
+
+	fmt.Println("Endpoint Hit : Check article")
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(article)
+}
