@@ -15,5 +15,6 @@ func Router() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/", homePage).Methods("GET")
 	r.HandleFunc("/article", getAllArticles).Methods("GET")
+	r.HandleFunc("/article", checkArticle).Methods("POST")
 	return r
 }
