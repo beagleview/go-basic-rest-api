@@ -14,5 +14,6 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 func Router() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/", homePage).Methods("GET")
+	r.HandleFunc("/article", getAllArticles).Methods("GET")
 	return r
 }
