@@ -1,7 +1,7 @@
 name: Go
 
 on:
-  push:
+  pull_request:
     branches: [ master ]
 
 jobs:
@@ -27,9 +27,11 @@ jobs:
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
         fi
+        
+    - name: Test
+      run: go test -v .
 
     - name: Build
       run: go build -v .
 
-    - name: Test
-      run: go test -v .
+    
