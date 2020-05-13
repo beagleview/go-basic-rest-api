@@ -19,7 +19,7 @@ func TestRouteToHomeWithSuccess(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if res.StatusCode != http.StatusBadRequest {
+	if res.StatusCode != http.StatusOK {
 		t.Errorf("Status code for / is wrong. Have: %d, want: %d.", res.StatusCode, http.StatusOK)
 	}
 }
